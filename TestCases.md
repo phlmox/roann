@@ -22,3 +22,7 @@
 ## Passive SQLi Detection from Error Messages
 
 ![sqli-detect](https://github.com/phlmox/roann/assets/62145317/a1b0124b-56a3-4f3e-9c97-583c8fc73137)
+
+## Path Based XSS
+
+![path](https://github.com/phlmox/roann/assets/62145317/c74471fd-737d-4fbb-a64b-a159f2dfba10)
