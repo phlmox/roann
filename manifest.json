@@ -1,0 +1,44 @@
+{
+
+  "manifest_version": 3,
+  "name": "RoanN",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "version": "3.0",
+  "description": "XSS Scanner",
+  "permissions":[
+  "activeTab",
+	"storage",
+  "downloads"
+  ],
+  "icons": {
+    "48": "icon.png"
+  },
+
+  "content_scripts": [
+	{
+	  "matches":["*://crt.sh/*"],
+	  "js": ["extensions/crtsh.js"]
+	},
+  {
+	  "matches":["*://web.archive.org/*"],
+	  "js": ["extensions/archiveorg.js"]
+	},
+  {
+      "matches": ["*://*/*"],
+      "js": ["assets/jquery.min.js","roann.js"]
+  }
+  ],
+  "action":{
+	"default_icon":"icon.png",
+	"default_popup":"assets/popup.html",
+	"default_title":"RoanN XSS Scanner"
+  },
+  "commands": {
+    "roann-shortcut": {
+      "suggested_key": "Alt+R",
+      "description": "Roann On/Off"
+    }
+  }
+}

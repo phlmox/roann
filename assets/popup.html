@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <style>
+    @font-face {
+      font-family: AnekMalayam;
+      src: url(AnekMalayalam.ttf);
+    }
+
+    * {
+      font-family: AnekMalayam;
+    }
+
+    body {
+      height: 500px;
+      width: 650px;
+    }
+
+    #title {
+      cursor: pointer;
+      color: #333;
+    }
+
+    .noselect {
+      -webkit-touch-callout: none;
+      /* iOS Safari */
+      -webkit-user-select: none;
+      /* Safari */
+      -khtml-user-select: none;
+      /* Konqueror HTML */
+      -moz-user-select: none;
+      /* Old versions of Firefox */
+      -ms-user-select: none;
+      /* Internet Explorer/Edge */
+      user-select: none;
+      /* Non-prefixed version, currently
+      supported by Chrome, Edge, Opera and Firefox */
+    }
+  </style>
+
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    .app{
+      margin:0 10px;
+    }
+    #bulktext{
+      width:100%;
+      height:350px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--Blacklist modal-->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title">Add item to blacklist</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="text">Domain:</label>
+            <input type="text" class="form-control" placeholder="Enter Domain" id="txtBlacklst">
+          </div>
+          <button class="btn btn-primary" id="addBlacklst">Add</button>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+    <!--Google dorks modal-->
+    <!--<div class="modal" id="dorksModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+  
+          <div class="modal-header">
+            <h4 class="modal-title">Google Dorks</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+  
+          <div class="modal-body">
+            
+          </div>
+  
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+  
+        </div>
+      </div>
+    </div>-->
+
+  <div class="container">
+    <img src="../icon.png" alt="RoanN" style="margin-right:24px;margin-top:24px;width:86px;height:86px;float:right;">
+    <h2 id="title" class="noselect">RoanN <span style="font-size:12px">v3.0</span></h2>
+    <p>Developed by <a href="https://twitter.com/EnesSaltk7/" target="_blank">@EnesSaltk7</a></p>
+
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+      <li><a data-toggle="tab" href="#blacklist">Blacklist</a></li>
+      <li><a data-toggle="tab" href="#parambox">Parambox</a></li>
+      <li><a data-toggle="tab" href="#bulk">Bulk</a></li>
+      <li><a data-toggle="tab" href="#history">History</a></li>
+      <li><a data-toggle="tab" href="#settings">Settings</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <h3>HOME</h3>
+        <p>
+          <div style="margin-left:40px;">
+                <button type="button" id="storedpayload" class="btn btn-default btn-lg app">Copy Stored XSS Payload</button>
+                <button type="button" id="blindpayload" class="btn btn-default btn-lg app">Copy Blind XSS Payload</button>
+          </div><br>
+          <!--<div style="margin-left:40px;">
+            <button type="button" id="googledorks" data-toggle="modal" data-target="#dorksModal" class="btn btn-default btn-lg app">Google Dorks</button>
+          </div>-->
+          <hr>
+          <h4>EXTENSIONS</h4>
+           <div style="margin-left:40px;">
+                <button type="button" id="wayback" class="btn btn-default btn-lg app">Wayback</button>
+                <button type="button" id="crtsh" class="btn btn-default btn-lg app">Crt.sh</button> 
+                <button type="button" id="bulktest" class="btn btn-default btn-lg app">Bulk Test</button> 
+          </div>
+        </p>
+      </div>
+      <div id="history" class="tab-pane fade">
+        <h3>History <button type="button" class="btn btn-warning" id="clearhistory" style="float:right;">Clear
+            History</button></h3><br>
+        <p>
+          <input id="myInput" class="form-control" type="text" placeholder="Search..">
+        <table>
+          <thead>
+            <tr>
+              <th>Origin</th>
+              <th>Issue</th>
+            </tr>
+          </thead>
+          <tbody id="historyTable">
+          </tbody>
+        </table><br>
+        </p>
+      </div>
+      <div id="blacklist" class="tab-pane fade">
+        <h3>Blacklist</h3>
+        <p>
+          <select multiple="multiple" id="blacklst" style="width:500px;"></select>
+          <br><br>
+        <div class="row">
+          <div class="col-md-6 offset-md-6">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add new item to
+              blacklist</button>
+            <button type="submit" class="btn btn-danger" id="delBlacklst">Delete selected item</button><br>
+          </div>
+        </div>
+        </p>
+      </div>
+      <div id="parambox" class="tab-pane fade">
+        <h3>Parambox</h3>
+        <h5>Parameters collected:</h5>
+        <p>
+          <select multiple="multiple" id="paramboxlst" style="width:500px;"></select>
+          <br><br>
+        <div class="row">
+          <div class="col-md-6 offset-md-6">
+            <button type="submit" class="btn btn-primary" id="downloadParambox">Download Parameters</button>
+            <button type="submit" class="btn btn-danger" id="delParambox">Clear Parambox</button><br>
+          </div>
+        </div>
+        </p>
+      </div>
+      <div id="bulk" class="tab-pane fade">
+        <h3>Bulk URL's</h3>
+        <p>
+          <textarea id="bulktext" ></textarea>
+        </p>
+      </div>
+      <div id="settings" class="tab-pane fade">
+        <h3>Settings</h3>
+        <p>Max requests per page: <input type="number" id="maxreq" min="1" max="500" value="50"></p>
+        <p><span style="color:red;font-weight: bold;">Advanced mode:</span> <input type="checkbox" id="advanced"></p>
+        <p>crt.sh Filter: <input type="checkbox" id="crt_check"></p>
+        <p>Wayback Filter: <input type="checkbox" id="wayback_check"></p>
+        <p>Blind XSS url: <input type="text" id="blindxss"></p>
+        <p>Only get scan: <input type="checkbox" id="onlyGet"></p>
+        <p>Parambox (Collect parameters): <input type="checkbox" id="parambox_check"></p>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+
+</html>
