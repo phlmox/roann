@@ -1,5 +1,7 @@
 # RoanN
 
+<img src="icon.png" style="width:128px;height:128px;">
+
 ### RoanN | Xss Scanner Browser Extension
 
 [Tutorial Video](https://www.youtube.com/watch?v=yyH8QZlJz4w)
