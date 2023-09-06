@@ -16,6 +16,4 @@
 
 * Download or clone the repository and extract the files
 * Visit chrome://extensions on Chrome and enable Developer mode on top-right.
-* On the same page click on Load unpacked and choose the extension's folder. 
-  
-![1](https://github.com/phlmox/roann/assets/62145317/c3a96c2f-7d98-4e22-9350-095980348c0b)
+* On the same page click on Load unpacked and choose the extension's folder.
