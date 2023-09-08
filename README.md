@@ -17,3 +17,7 @@
 * Download or clone the repository and extract the files
 * Visit chrome://extensions on Chrome and enable Developer mode on top-right.
 * On the same page click on Load unpacked and choose the extension's folder.
+
+
+----
+### Developers assume no liability and are not responsible for any misuse or damage caused by this program.
